@@ -1,0 +1,66 @@
+.Insuranceinfo-main {}
+
+.Insuranceinfo-main .shield {
+    font-weight: 800;
+    font-size: 42.9412px;
+    line-height: 50px;
+    letter-spacing: 0.07em;
+    font-style: italic;
+    color: #296ABD;
+    width: 156px;
+    margin: 0px;
+    height: 50px;
+    /* text-align: center; */
+
+
+}
+
+.Insuranceinfo-main .psp {
+    /* font-family: 'Roboto'; */
+    /* font-style: normal; */
+    font-weight: 500;
+    font-size: 20.0392px;
+    line-height: 23px;
+
+    color: #333333;
+    width: 251px;
+    height: 23px;
+}
+
+.Insuranceinfo-main .shield-div {
+    display: flex;
+    width: 100%;
+
+    justify-content: center;
+}
+
+.Insuranceinfo-main .psp-div {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.Insuranceinfo-main .induranceInfo {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.Insuranceinfo-main .border {
+    border: 2px dashed #FE602F;
+    border-radius: 9px;
+}
+
+.Insuranceinfo-main .leftdiv {
+    width: fit-content;
+    max-height: 427px;
+    overflow-y: scroll;
+}
+
+.Insuranceinfo-main .savenxt {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    background: #FE602F;
+    border-radius: 4px;
+    width: 244px;
+}

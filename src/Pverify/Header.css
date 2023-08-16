@@ -1,0 +1,66 @@
+.Hcontainer{
+    background-color: #1DA0E1;
+    color:white;
+    /* width:95%; */
+    justify-content: space-around;
+    
+}
+ .leftContainer{
+    margin-left: 20px;
+    /* margin-top: 20px; */
+
+}
+.leftContainer h1{
+    margin: 0;
+}
+.leftContainer> p{
+    margin: 0px;
+}
+.RightPattern{
+    justify-content: center;
+    /* margin: auto; */
+    text-align: center;
+    /* margin-top: 10px; */
+    /* margin-right: 20px; */
+    margin-left: -30px;
+} 
+
+
+.plus{
+    text-align: center;
+    margin-top: 9px;
+}
+.rightPatternRow{
+    margin-right: 10px;
+}
+.plus p{
+    margin: 6px 0;
+    cursor: pointer;
+}
+.rightPatterCol{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.leftPatternCol{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.Logout{
+    /* margin-top: 26px; */
+    cursor: pointer;
+    background-color: #FA1D1D;
+    height:40px;
+    justify-content: center;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.headerIcon{
+    cursor: pointer;
+}
+.logoutmini{
+
+   margin-top: 10px;
+}

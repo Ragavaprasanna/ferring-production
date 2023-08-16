@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-webportalaws-dev-123251-authRole",
+      "UnauthRoleArn": "arn:aws:iam::370687957258:role/amplify-webportalaws-dev-123251-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::370687957258:role/amplify-webportalaws-dev-123251-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-webportalaws-dev-123251-deployment",
+      "UnauthRoleName": "amplify-webportalaws-dev-123251-unauthRole",
+      "StackName": "amplify-webportalaws-dev-123251",
+      "StackId": "arn:aws:cloudformation:us-east-1:370687957258:stack/amplify-webportalaws-dev-123251/92738740-c87f-11ed-8786-12993d5a54db",
+      "AmplifyAppId": "d2bxjmjm6o63l5"
+    }
+  }
+}

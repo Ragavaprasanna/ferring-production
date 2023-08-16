@@ -1,0 +1,100 @@
+.Concent-main {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.Concent-main .shield {
+    font-weight: 800;
+    font-size: 42.9412px;
+    line-height: 50px;
+    letter-spacing: 0.07em;
+    font-style: italic;
+    color: #296ABD;
+    width: 156px;
+    margin: 0px;
+    height: 50px;
+    /* text-align: center; */
+
+
+}
+
+.Concent-main .psp {
+    /* font-family: 'Roboto'; */
+    /* font-style: normal; */
+    font-weight: 500;
+    font-size: 20.0392px;
+    line-height: 23px;
+
+    color: #333333;
+    width: 251px;
+    height: 23px;
+}
+
+.Concent-main .shield-div {
+    display: flex;
+    width: 100%;
+
+    justify-content: center;
+}
+
+.Concent-main .psp-div {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.Concent-main .details {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.Concent-main .desc {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.Concent-main .form-Div {
+    max-height: 300px;
+    overflow-y: scroll;
+    padding: 5px;
+}
+
+.Concent-main .Signature {
+    display: block;
+    margin: 0 auto;
+}
+
+.Concent-main .Signature-btn {
+    display: block;
+    margin-left: 28px
+}
+
+.Concent-main .Signature-btn button {
+    color: #FE602F;
+    border-color: #FE602F;
+}
+
+.Concent-main .savenxt {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    background: #FE602F;
+    border-radius: 4px;
+    width: 244px;
+}
+
+.Concent-main .sponsorimage {
+    float: right;
+}
+
+.Signature-pad {
+    border: 1px solid #ACACAC;
+    border-radius: 14px;
+}
+
+.Concent-main .sign-img {
+    padding: 10px;
+    margin-left: -150px;
+}

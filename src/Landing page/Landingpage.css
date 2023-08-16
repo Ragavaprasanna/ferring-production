@@ -1,0 +1,355 @@
+.Landingpage-main {
+    text-align: center;
+    /* display: flex; */
+    margin: auto;
+}
+
+.Landingpage-sub {
+    width: 391px;
+    height: 438px;
+    box-sizing: border-box;
+
+    position: absolute;
+    margin: 0 auto;
+
+    left: 483px;
+    top: 100px;
+    ;
+
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    box-shadow: -116px 46px 50px rgba(0, 0, 0, 0.01), -65px 26px 42px rgba(0, 0, 0, 0.05), -29px 11px 31px rgba(0, 0, 0, 0.09), -7px 3px 17px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.Landingpage-main .Shield {
+    position: relative;
+
+    left: 140px;
+    top: 25px;
+
+    /* font-family: 'Roboto'; */
+    font-style: italic;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    letter-spacing: 0.07em;
+
+    color: #296ABD;
+
+}
+
+.Landingpage-main .psp {
+    position: relative;
+    width: 175px;
+    height: 16px;
+    left: 107px;
+    top: 27px;
+
+    /* font-family: 'Roboto'; */
+    /* font-style: normal; */
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #333333;
+}
+
+.Landingpage-main .ProfileImage {
+    position: relative;
+    width: 81px;
+    height: 81px;
+    left: 154px;
+    top: 42px;
+}
+
+.Landingpage-main .newUser {
+    position: relative;
+    width: 244px;
+    height: 40px;
+    left: 81px;
+    top: 72px;
+
+    background: #FE602F;
+    border-radius: 4px;
+}
+.Landingpage-main .newUser:hover{
+    background: #Ffff;
+    color: #333333;
+}
+
+.Landingpage-main .ExistingUser {
+    box-sizing: border-box;
+
+    position: relative;
+    width: 244px;
+    height: 40px;
+    left: 81px;
+    top: 100px;
+    color: #FE602F;
+
+    /* background: #FFFFFF; */
+    border: 1px solid #FE602F;
+    border-radius: 4px;
+}
+
+.Landingpage-main .Company-Logo {
+    position: relative;
+    width: 137px;
+    height: 27px;
+    left: 126px;
+    top: 122px;
+}
+
+.Landingpage-main .rotate {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    margin: -60px 0 0 -60px;
+    -webkit-animation: spin 10s linear infinite;
+    -moz-animation: spin 10s linear infinite;
+    animation: spin 10s linear infinite;
+    justify-content: space-between;
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* .Landingpage-main .image01{
+ position:relative;
+width: 124px;
+height: 127px;
+left: 37px;
+top: 28px;
+}
+.Landingpage-main .image01{
+ position:relative;
+width: 124px;
+height: 127px;
+left: 37px;
+top: 28px;
+background-image: url("../../public/medbox.png");
+}
+.Landingpage-main .image02{
+ position:relative;
+    width: 204px;
+    height: 188px;
+    left: 171px;
+    top: 12px;
+}
+.Landingpage-main .image03{
+ position:relative;
+    width: 99px;
+    height: 101px;
+    left: 398px;
+    top: 28px;
+}
+.Landingpage-main .image04{
+ position:relative;
+    width: 104px;
+    height: 109px;
+    left: 569px;
+    top: 10px;
+}
+.Landingpage-main .image05{
+ position:relative;
+    width: 124px;
+    height: 127px;
+    left: 733px;
+    top: 12px;
+}
+.Landingpage-main .image06{
+ position:relative;
+    width: 99px;
+    height: 101px;
+    left: 960px;
+    top: 28px;
+}
+.Landingpage-main .image07{
+ position:relative;
+    width: 204px;
+    height: 188px;
+    left: 1081px;
+    top: 12px;
+}
+.Landingpage-main .image08{
+ position:relative;
+    width: 124px;
+    height: 127px;
+    left: 1295px;
+    top: 40px;
+}
+.Landingpage-main .image11{
+ position:relative;
+width: 99px;
+height: 101px;
+left: 49px;
+top: 225px;
+}
+.Landingpage-main .image12{
+ position:relative;
+    width: 104px;
+    height: 109px;
+    left: 221px;
+    top: 235px;
+    
+}
+.Landingpage-main .image13{
+ position:relative;
+    width: 124px;
+    height: 127px;
+    left: 385px;
+    top: 199px;
+}
+.Landingpage-main .image14{
+ position:relative;
+width: 99px;
+height: 101px;
+left: 49px;
+top: 225px;
+}
+.Landingpage-main .image15{
+ position:relative;
+width: 99px;
+height: 101px;
+left: 49px;
+top: 225px;
+}
+.Landingpage-main .image16{
+ position:relative;
+    width: 124px;
+    height: 127px;
+    left: 947px;
+    top: 199px;
+}
+.Landingpage-main .image17{
+ position:relative;
+    width: 104px;
+    height: 109px;
+    left: 1131px;
+    top: 235px;
+}
+.Landingpage-main .image18{
+ position:relative;
+width: 99px;
+height: 101px;
+left: 1307px;
+top: 235px;
+}
+.Landingpage-main .image21{
+ position:relative;
+width: 124px;
+height: 127px;
+left: 37px;
+top: 396px;
+}
+.Landingpage-main .image22{
+ position:relative;
+    width: 204px;
+    height: 188px;
+    left: 171px;
+    top: 379px;
+}
+.Landingpage-main .image23{
+ position:relative;
+    width: 99px;
+    height: 101px;
+    left: 398px;
+    top: 396px;
+}
+.Landingpage-main .image26{
+ position:relative;
+    width: 99px;
+    height: 101px;
+    left: 960px;
+    top: 396px;
+}
+.Landingpage-main .image27{
+ position:relative;
+    width: 204px;
+    height: 188px;
+    left: 1081px;
+    top: 379px;
+}
+.Landingpage-main .image28{
+ position:relative;
+    width: 124px;
+    height: 127px;
+    left: 1295px;
+    top: 404px;
+}
+.Landingpage-main .image31{
+ position:relative;
+width: 99px;
+height: 101px;
+left: 49px;
+top: 593px;
+}
+.Landingpage-main .image32{
+ position:relative;
+    width: 104px;
+    height: 109px;
+    left: 221px;
+    top: 602px;
+}
+.Landingpage-main .image33{
+ position:relative;
+    width: 124px;
+    height: 127px;
+    left: 385px;
+    top: 567px;
+}
+.Landingpage-main .image34{
+ position:relative;
+    width: 204px;
+    height: 188px;
+    left: 519px;
+    top: 524px;
+}
+.Landingpage-main .image35{
+ position:relative;
+    width: 104px;
+    height: 109px;
+    left: 783px;
+    top: 602px;
+}
+.Landingpage-main .image36{
+ position:relative;
+    width: 124px;
+    height: 127px;
+    left: 947px;
+    top: 567px;
+}
+.Landingpage-main .image37{
+ position:relative;
+    width: 104px;
+    height: 109px;
+    left: 1131px;
+    top: 602px;
+}
+.Landingpage-main .bot01{
+ position:relative;
+width: 259px;
+height: 337px;
+left: 1152px;
+top: 420px;
+} */
+
+

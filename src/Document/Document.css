@@ -1,0 +1,39 @@
+.Document-main{
+
+}
+.Document-main .shield {
+    font-weight: 800;
+    font-size: 42.9412px;
+    line-height: 50px;
+    letter-spacing: 0.07em;
+    font-style: italic;
+    color: #296ABD;
+    width: 156px;
+    margin: 0px;
+    height: 50px;
+    /* text-align: center; */
+
+
+}
+.Document-main .psp {
+    /* font-family: 'Roboto'; */
+    /* font-style: normal; */
+    font-weight: 500;
+    font-size: 20.0392px;
+    line-height: 23px;
+
+    color: #333333;
+    width: 251px;
+    height: 23px;
+}
+.Document-main .shield-div {
+    display: flex;
+    width: 100%;
+
+    justify-content: center;
+}
+.Document-main .psp-div {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}

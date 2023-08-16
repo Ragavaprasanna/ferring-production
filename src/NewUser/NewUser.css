@@ -1,0 +1,125 @@
+.Newuser-main {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.Newuser-main .shield {
+    font-weight: 800;
+    font-size: 42.9412px;
+    line-height: 50px;
+    letter-spacing: 0.07em;
+    font-style: italic;
+    color: #296ABD;
+    width: 156px;
+    margin: 0px;
+    height: 50px;
+    /* text-align: center; */
+
+
+}
+
+.Newuser-main .psp {
+    /* font-family: 'Roboto'; */
+    /* font-style: normal; */
+    font-weight: 500;
+    font-size: 20.0392px;
+    line-height: 23px;
+
+    color: #333333;
+    width: 251px;
+    height: 23px;
+}
+
+.Newuser-main .Instructions {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: #FE602F;
+    width: 107px;
+    height: 23px;
+}
+
+.Newuser-main .instructions-div {
+    display: flex;
+    width: 100%;
+
+    justify-content: center;
+}
+
+.Newuser-main .leftdiv {
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+    /* width: 645px; */
+    height: 424px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.Newuser-main .leftdiv {
+    /* color: #FE602F; */
+
+}
+
+.Newuser-main .paras {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.Newuser-main .rightdiv {
+    max-height: 410px;
+    overflow-y: scroll;
+
+
+}
+
+
+
+
+
+
+
+.Newuser-main .shield-div {
+    display: flex;
+    width: 100%;
+
+    justify-content: center;
+}
+
+.Newuser-main .psp-div {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.Newuser-main .infodiv {
+    font-size: 6px;
+    font-weight: 500;
+
+
+}
+
+::marker {
+    color: #FE602F;
+}
+
+.Newuser-main .datepicker {
+    width: 30.4rem;
+    margin-top: 7px;
+}
+
+.Newuser-main textField {
+    margin-top: 10px;
+}
+
+.Newuser-main .savenxt {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    background: #FE602F;
+    border-radius: 4px;
+    width: 244px;
+
+}

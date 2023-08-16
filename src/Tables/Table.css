@@ -1,0 +1,81 @@
+.Table-Page{
+
+}
+.Table-Page .savenxt{
+    background: #FE602F;
+border-width: 1px 1px 0px 1px;
+border-color: #FE602F;
+margin-left: 10px;
+width: 297px;
+height: 40px;
+border-radius: 4px 4px 0px 0px;
+}
+.Table-Page .active{
+    background: #f3f3f3;
+    border-width: 1px 1px 0px 1px;
+    border-color: #fcfcfc;
+    color: black;
+    text-transform: none;    
+    margin-left: 10px;
+    width: 297px;
+    height: 40px;
+    border-radius: 4px 4px 0px 0px;
+}
+.Button-Div .css-sghohy-MuiButtonBase-root-MuiButton-root:hover{
+    border-color: #FE602F; 
+    background: #eb7d5b ;
+    color: #333333;
+}
+.Button-Div .css-sghohy-MuiButtonBase-root-MuiButton-root:hover{
+    border-color: #FE602F;
+    background: #eb7d5b;
+    
+    color: #333333;
+}
+
+.Table-Page .notActive{
+    background: #FE602F;
+    border-width: 1px 1px 0px 1px;
+    border-color: #FE602F;
+    margin-left: 10px;
+    text-transform: none;
+    width: 297px;
+    height: 40px;
+    border-radius: 4px 4px 0px 0px;
+}
+.Table-Page .shield {
+    font-weight: 800;
+    font-size: 42.9412px;
+    line-height: 50px;
+    letter-spacing: 0.07em;
+    font-style: italic;
+    color: #296ABD;
+    width: 156px;
+    margin: 0px;
+    height: 50px;
+    /* text-align: center; */
+
+
+}
+.Table-Page .psp {
+    /* font-family: 'Roboto'; */
+    /* font-style: normal; */
+    font-weight: 500;
+    font-size: 20.0392px;
+    line-height: 23px;
+
+    color: #333333;
+    width: 251px;
+    height: 23px;
+}
+.Table-Page .shield-div {
+    display: flex;
+    width: 100%;
+
+    justify-content: center;
+}
+.Table-Page  .psp-div {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
