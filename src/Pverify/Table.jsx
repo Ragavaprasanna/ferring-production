@@ -219,7 +219,7 @@ const MTable = () => {
             {/* <TableCell>{row.plan_name}</TableCell> */}
             <TableCell>{row.subscriber_id}</TableCell>
             <TableCell>{row.coverage_status}</TableCell>
-            <TableCell>{row.create_date</TableCell>
+            <TableCell>{row.create_date}</TableCell>
               <TableCell style={{display:"flex",flexDirection:"row"}}>
                 <IconButton aria-label="edit" color="primary">
                   <Edit   onClick={(e) => navigate(`/Pverifyy/${row.userid}`, { state: { rowData: row } })}/>
