@@ -24,7 +24,7 @@
   }
   .css-rqglhn-MuiTable-root {
     display: table;
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     border-collapse: collapse;
     border-spacing: 0;
@@ -214,4 +214,68 @@
 }
 .descriptionPara{
   font-weight: 500;
+}
+
+
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root{
+  width:300px !important;
+  background-color: white;
+}
+.top{
+  margin-top: 5%;
+}
+
+.add{
+  width: 120px;
+  height: 40px;
+  background-color:  #FA1D1D;
+  border: none;
+  border-radius: 3px;
+  
+  /* background-color: red; */
+  color: white;
+  /* top: 418px; */
+  
+  
+}
+.clear{
+  width: 120px;
+  height: 40px;
+  border-radius: 3px;
+  border: 1px;
+  /* background-color: white; */
+
+color:#909090;
+background-color: white;
+border: 0.5px solid #909090;
+
+
+
+  
+
+}
+.submit{
+  width: 120px;
+  height: 40px;
+  background-color: #099de6;
+  color: white;
+  border: none;
+  border-radius: 3px;
+
+/* top: 418px; */
+/* left: 598px */
+
+}
+.drop1{
+  width:300px;
+  background-color: white;
+  
+}
+/* .dropdownstcak{
+  margin-top: 10px;
+} */
+.hcpoff{
+  margin: auto;
+  justify-content: center;
+  text-align: center;
 }

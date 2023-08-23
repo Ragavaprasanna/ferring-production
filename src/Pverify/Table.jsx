@@ -36,6 +36,7 @@ const MTable = () => {
   const [filteredData,setFilteredData] =useState([])
   const [selectedRowData, setSelectedRowData] = useState(null);
   const [showPdfViewer, setShowPdfViewer] = useState(false);
+  const [deletedRows, setDeletedRows] = useState([]);
   const navigate=useNavigate()
 
 
@@ -43,6 +44,9 @@ const MTable = () => {
   //   setSelectedRowData(rowData);
   //   setShowPdfViewer(true);
   // };
+
+
+ 
 
   const tableSearch = (value) => {
     if (!value) {
@@ -81,16 +85,16 @@ const MTable = () => {
 
 
 
-  const handleDelete = (id) => {
-    const indexToDelete = tableData.findIndex((entry) => entry.id === id);
+  // const handleDelete = (id) => {
+  //   const indexToDelete = tableData.findIndex((entry) => entry.id === id);
 
-    if (indexToDelete !== -1) {
-      const updatedTableData = [...tableData];
-      updatedTableData.splice(indexToDelete, 1);
-      setTableData(updatedTableData);
-      setFilteredData(updatedTableData)
-    }
-  };
+  //   if (indexToDelete !== -1) {
+  //     const updatedTableData = [...tableData];
+  //     updatedTableData.splice(indexToDelete, 1);
+  //     setTableData(updatedTableData);
+  //     setFilteredData(updatedTableData)
+  //   }
+  // };
 
   // const generatePDF = () => {
   //   const pdf = new jsPDF();
@@ -127,6 +131,12 @@ const MTable = () => {
 
 
   useEffect(() => {
+    getData()
+  },[])
+
+    const getData=()=>{
+
+
     const tableUrl = 'https://7xw2w3ulbm7hufuiht6cuzexva0ahwhd.lambda-url.us-east-1.on.aws/';
 
 
@@ -137,8 +147,33 @@ const MTable = () => {
       setTableData(res.data);
 
     })
+  }
 
-  },[])
+
+
+
+  const handleDelete = (id) => {
+
+    const deleteUrl = 'https://vsimn5cz2j6comovda6rhz22ju0czxzd.lambda-url.us-east-1.on.aws/';
+  
+    const requestBody = {
+     userid: id
+   };
+   
+  
+    axios.post(deleteUrl, JSON.stringify(requestBody))
+      .then((response) => {
+          const updatedTableData = tableData.filter(e => e.userid !== id); 
+          setTableData(updatedTableData);
+          setFilteredData(updatedTableData);
+          getData()
+          console.log("rash",response)
+        
+      })
+      .catch(e => {
+        console.error("Error deleting:", e);
+      });
+  };
 //   const handleEdit = (e) =>{
 // dispatch({
 //   type:actionTypes.SET_SOURCETEXT,
@@ -218,14 +253,14 @@ const MTable = () => {
             <TableCell>{row.insurance_name}</TableCell>
             {/* <TableCell>{row.plan_name}</TableCell> */}
             <TableCell>{row.subscriber_id}</TableCell>
-            <TableCell>{row.coverage_status}</TableCell>
-            <TableCell>{row.create_at}</TableCell>
+            <TableCell>{row.coverage_status}</TableCell>  
+            <TableCell>{row.create_date}</TableCell>
               <TableCell style={{display:"flex",flexDirection:"row"}}>
                 <IconButton aria-label="edit" color="primary">
                   <Edit   onClick={(e) => navigate(`/Pverifyy/${row.userid}`, { state: { rowData: row } })}/>
                 </IconButton>
                 <IconButton aria-label="delete" color="secondary" >
-                  <Delete  onClick={(row)=>handleDelete(row.id)}/>
+                  <Delete  onClick={()=>handleDelete(row.userid)}/>
                 </IconButton>
                 <IconButton aria-label="download" color="default" >
                   <CloudDownload  onClick={() => handleDownloadPdf(row)}  />
@@ -265,13 +300,13 @@ const MTable = () => {
           
             <TableCell>{row.subscriber_id}</TableCell>
             <TableCell>{row.coverage_status}</TableCell>
-            <TableCell>{row.create_at}</TableCell>
+            <TableCell>{row.create_date}</TableCell>
             <TableCell  style={{display:"flex",flexDirection:"row"}}>
               <IconButton aria-label="edit" color="primary">
                 <Edit onClick={(e) => (row) } />
               </IconButton>
               <IconButton aria-label="delete" color="secondary" >
-                <Delete onClick={(row)=>handleDelete(row.id)}/>
+                <Delete onClick={()=>handleDelete(row.userid)}/>
               </IconButton>
               <IconButton aria-label="download" color="default" >
                 <CloudDownload onClick={() => handleDownloadPdf(row)} />
