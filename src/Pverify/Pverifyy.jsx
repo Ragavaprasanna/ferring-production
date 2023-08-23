@@ -241,7 +241,7 @@ message.open({
       
 
           let url4 =
-            "https://vduo2m24ykfx3ixf4bbkxpw6xe0fwngw.lambda-url.us-east-1.on.aws/";
+            "https://tedwotzebqf5cp5vus63hkdkum0gegmb.lambda-url.us-east-1.on.aws/";
 
           let body4 = {
             // "Id": my_list[0],
