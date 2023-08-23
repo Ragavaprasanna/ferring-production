@@ -121,17 +121,33 @@ const PureReact = () => {
   console.log(id, "id");
 
   const success = () => {
-    messageApi.open({
+    console.log('successmessagefunction')
+message.open({
       type: "success",
       content: "Pverify Verified Successfully",
     });
+//     messageApi.success("Logged in successfully")
   };
   const error = () => {
-    messageApi.open({
+    console.log('errormessagefunction')
+message.open({
       type: "error",
-      content: "failed to Update",
+      content: "Invalid Subscriber Id",
     });
-  };
+  }
+
+  // const success = () => {
+  //   messageApi.open({
+  //     type: "success",
+  //     content: "Pverify Verified Successfully",
+  //   });
+  // };
+  // const error = () => {
+  //   messageApi.open({
+  //     type: "error",
+  //     content: "failed to Update",
+  //   });
+  // };
 
 
   useEffect(() => {
@@ -225,7 +241,7 @@ const PureReact = () => {
       
 
           let url4 =
-            "https://tedwotzebqf5cp5vus63hkdkum0gegmb.lambda-url.us-east-1.on.aws/";
+            "https://vduo2m24ykfx3ixf4bbkxpw6xe0fwngw.lambda-url.us-east-1.on.aws/";
 
           let body4 = {
             // "Id": my_list[0],
@@ -259,6 +275,24 @@ const PureReact = () => {
               let Coinsurancerelatedinformation = res.data.Coinsurancerelatedinformation
               setPercentDeduct(res.data.Coinsurancerelatedinformation)
               console.log(Coinsurancerelatedinformation,"Coinsurancerelatedinformation")
+
+              if (res.data.status === "ok" ) {
+                success();
+                // alert("Login Successfull")
+               
+
+            console.log(response)
+            }
+            else {
+                Navigate("/pverifyy");
+                error()
+
+                // message.error("Invalid username or OTP");
+            }
+
+        }).catch((e)=>{
+            // error()
+console.log("error",e)
             })
           
             .finally(() => {
@@ -441,7 +475,7 @@ const PureReact = () => {
 
             axios
               .get(
-                `https://wkakeekb2aiaxhobq26xi337je0pbxxt.lambda-url.us-east-1.on.aws/`
+                `https://6kia4hf4gqt277xfeihcw3a7je0xnuxy.lambda-url.us-east-1.on.aws/`
               )
               .then((res) => {
                 setLoading(false);
@@ -482,13 +516,37 @@ const PureReact = () => {
                 setdragger("Mannual");
                 // if (res.data.Member_ID:) {
                 //     setInsuranceNumber(res.data.Member_ID:)
+
                 // }
+
+//                 const insurerObject = res.data.extracted_json[0].find(item => item.insurer_name);
+//                 const insurerName = insurerObject ? insurerObject.insurer_name : '';
+
+// // Find and extract Member and Member ID
+//                     let member = '';
+//                     let memberID = '';
+//               for (const item of res.data.extracted_json) {
+//               if (item.startsWith("Member:")) {
+//               member = item.replace("Member:", "").trim();
+//             } else if (item.startsWith("Member ID:")) {
+//             memberID = item.replace("Member ID:", "").trim();
+//              }
+//             }
+
+// console.log("Insurer Name:", insurerName);
+// console.log("Member:", member);
+// console.log("Member ID:", memberID);
+                   const insur = res.data.insurer_name
+                   if(res.data.insurer_name=="United Healthcare"){
+                   setPayer("UnitedHealthCare")
+                   }
                 const fullName = res.data.Member;
                 if (fullName) {
                   const nameParts = fullName.split(" ");
 
                   setfirstname(nameParts[0]);
                   setlastname(nameParts.slice(1).join(" "));
+                  // setpayerName(insurerName)
                 }
 
                 console.log(res.data.Member, "fullname");
@@ -626,6 +684,7 @@ const PureReact = () => {
                     disablePortal
                     id="combo-box-demo"
                     options={options1}
+                    value={payer}
                     sx={{ width: 400 }}
                     renderInput={(params) => (
                       <TextField
