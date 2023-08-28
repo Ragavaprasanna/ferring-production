@@ -66,7 +66,7 @@ const NewLandingpage = () => {
     };
     const Navigate = useNavigate();
     const  handleClick = (e) => {
-        let url2 = "https://m4cacmey3m3w24kp7a5xc3ek3u0kutvv.lambda-url.us-east-1.on.aws/"
+        let url2 = "https://pdu3owgbqnkn2dnub7uwmzptoi0nsowp.lambda-url.us-east-1.on.aws/"
             let body = {
                 // "Id": my_list[0],
                 "email":email
