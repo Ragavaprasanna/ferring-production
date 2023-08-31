@@ -34,6 +34,7 @@ import { Switch, Checkbox } from "antd";
 import { red } from "@mui/material/colors";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
+import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
 import Header from "./Header";
@@ -76,6 +77,7 @@ const PureReact = () => {
     []
   );
   const [aetna, setaetna] = useState([]);
+  const [ambetter, setambetter] = useState([]);
   const [unitedhealthcare, setunitedhealthcare] = useState([]);
   const [plan, setPlan] = useState([]);
   const [responseCovered, setresponseCovered] = useState("");
@@ -84,6 +86,8 @@ const PureReact = () => {
   const [icon1, seticon1] = useState(false);
   const [icon2, seticon2] = useState(false);
   const [icon3, seticon3] = useState(false);
+   const [icon4,seticon4] = useState(false);
+   const [icon5,seticon5] = useState(false);
   const [subscriberid, setSubscriberid] = useState("");
   const [firstname, setfirstname] = useState("");
   const [lastname, setlastname] = useState("");
@@ -97,6 +101,7 @@ const PureReact = () => {
  
       { label: "UnitedHealthcare Dual Complete Choice (PPO D-SNP)", id: 1 },
       { label: "United Healthcare Medicare Advantage Choice plan1(Regional PPO)", id: 2 },
+      { label: "UnitedHealthcare Dual Complete (HMO-POS D-SNP)", id: 3 },
   ]
 
   const Aetnaopt=[
@@ -150,39 +155,64 @@ message.open({
   // };
 
 
+  // useEffect(() => {
+  //   let url5 =
+  //     "https://xwuolpeyrsa2lrq7f6tvhbpd740rzgdy.lambda-url.us-east-1.on.aws/";
+
+  //   axios.get(url5).then((res) => {
+  //     console.log(res, "payerlist");
+  //     setCigna(res.data.cigna.filter((e) => e != null));
+  //     setaetna(res.data.aetna.filter((e) => e != null));
+  //     setemblemhealth(res.data.emblemhealth.filter((e) => e != null));
+  //     setanthembluecrossblueshield(
+  //       res.data.anthembluecrossblueshield.filter((e) => e != null)
+  //     );
+  //     setunitedhealthcare(res.data.unitedhealthcare.filter((e) => e != null));
+  //     console.log(cigna, "cigna");
+  //   });
+  // }, []);
+  // console.log(cigna, "cigna");
   useEffect(() => {
     let url5 =
       "https://xwuolpeyrsa2lrq7f6tvhbpd740rzgdy.lambda-url.us-east-1.on.aws/";
 
     axios.get(url5).then((res) => {
       console.log(res, "payerlist");
-      setCigna(res.data.cigna.filter((e) => e != null));
-      setaetna(res.data.aetna.filter((e) => e != null));
-      setemblemhealth(res.data.emblemhealth.filter((e) => e != null));
+      setCigna(res.data.cigna_list);
+      setaetna(res.data.aetna_list);
+      setemblemhealth(res.data.emblem_list);
       setanthembluecrossblueshield(
-        res.data.anthembluecrossblueshield.filter((e) => e != null)
+        res.data.blue_cross
       );
-      setunitedhealthcare(res.data.unitedhealthcare.filter((e) => e != null));
-      console.log(cigna, "cigna");
+      setambetter(
+        res.data.ambetter_list
+      );
+      setunitedhealthcare(
+        res.data.united_healthcare_list
+      );
+      // setunitedhealthcare(res.data.unitedhealthcare.filter((e) => e != null));
+      // console.log(cigna, "cigna");
     });
   }, []);
-  console.log(cigna, "cigna");
   useEffect(() => {
-    // if (payer === "EMBLEM HEALTH-EDI") {
-    //   setPlan(emblemhealth);
-    //   console.log(emblemhealth, "ragav");
-    // }
-    if (payer === "UnitedHealthCare") {
-      setPlan(UnitedHealthCare);
+    if (payer === "EmblemHealth") {
+      setPlan(emblemhealth);
+      console.log(emblemhealth, "ragav");
     }
-    // if (payer === "Cigna") {
-    //   setPlan(cigna);
-    // }
-    // if (payer === "Anthem") {
-    //   setPlan(anthembluecrossblueshield);
-    // }
+    if (payer === "UnitedHealthCare") {
+      setPlan(unitedhealthcare);
+    }
+    if (payer === "Cigna") {
+      setPlan(cigna);
+    }
+    if (payer === "BluecrossBlueshield") {
+      setPlan(anthembluecrossblueshield);
+    }
     if (payer === "Aetna") {
-      setPlan(Aetnaopt);
+      setPlan(aetna);
+    }
+    if (payer === "Ambetter") {
+      setPlan(ambetter);
     }
   }, [payer]);
 
@@ -221,7 +251,7 @@ message.open({
            let enblem ;
           console.log(response,"response",payer)
 
-          if(payer =="EMBLEM HEALTH-EDI"){
+          if(payer =="EmblemHealth"){
             setpayerCode(enblem)
             enblem="000101" 
 
@@ -311,18 +341,33 @@ console.log("error",e)
       seticon1(true);
       seticon2(false);
       seticon3(false);
-    } else if (responseCovered == "Covered with Condition") {
+      seticon4(false)
+      seticon5(false)
+    } else if (responseCovered == "Covered with Conditions") {
       seticon1(false);
       seticon2(true);
       seticon3(false);
+      seticon4(false)
+      seticon5(false)
+    } else if (responseCovered == "Covered with Condition") {
+      seticon1(false);
+      seticon2(false);
+      seticon3(false);
+      seticon4(true)
+      seticon5(false)
     } else if (responseCovered == "Not Covered") {
       seticon1(false);
       seticon2(false);
       seticon3(true);
+      seticon4(false)
+      seticon5(false)
     } else {
       seticon1(false);
       seticon2(false);
       seticon3(false);
+      seticon4(false)
+      seticon5(true)
+
     }
   }, [responseCovered]);
   // ]
@@ -591,11 +636,12 @@ console.log("error",e)
   console.log({ payerCode });
 
   const options1 = [
-    // { label: "EMBLEM HEALTH-EDI", id: 1 },
+    { label: "EmblemHealth", id: 1 },
     { label: "UnitedHealthCare", id: 2 },
-    // { label: "Cigna", id: 3 },
-    // { label: "Anthem", id: 4 },
+    { label: "Cigna", id: 3 },
+    { label: "BluecrossBlueshield", id: 4 },
     { label: "Aetna", id: 5 },
+    { label: "Ambetter", id: 6 },
   ];
   const options2 = [
     { label: "EmblemHealth Platinum", id: 1 },
@@ -879,6 +925,18 @@ console.log("error",e)
                           style={{ gap: "30px", color: "orange", position: "relative",top: "7px" }}
                         />
                         <span style={{ marginLeft: "8px", color: "black" }}>
+                          Covered with Conditions
+                        </span>
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    {icon4 ? (
+                      <span  style={{ marginBottom: "9px" }}>
+                        <WarningAmberIcon
+                          style={{ gap: "30px", color: "orange", position: "relative",top: "7px" }}
+                        />
+                        <span style={{ marginLeft: "8px", color: "black" }}>
                           Covered with Condition
                         </span>
                       </span>
@@ -894,6 +952,19 @@ console.log("error",e)
                         <span style={{ marginLeft: "8px", color: "black" }}>
                           {" "}
                           Not Covered
+                        </span>
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    {icon5 ? (
+                      <span  style={{ marginBottom: "9px" }}>
+                        <DoNotDisturbIcon
+                          style={{ gap: "30px", color: "red", top: "10px", position: "relative",top: "7px" }}
+                        />
+                        <span style={{ marginLeft: "8px", color: "black" }}>
+                          {" "}
+                          Detail Not available
                         </span>
                       </span>
                     ) : (

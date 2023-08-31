@@ -157,7 +157,7 @@ console.log("error",e)
                     <Row>
                         <div className='shield-div'>
                             <h1 className='shield'>
-                                SHIELD
+                                MEDICAL EBV
                             </h1>
 
                         </div>
@@ -173,7 +173,7 @@ console.log("error",e)
                     <Row>
                         <h1 className='shieldprogram'>
 
-                            THE SHIELD PROGRAM®
+                            THE MEDICAL PROGRAM®
                         </h1>
                     </Row>
                     <Row>

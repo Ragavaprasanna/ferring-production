@@ -33,7 +33,7 @@ const Header = () => {
                     
                 <div className="leftContainer">
                 
-                     <h1 >SHIELD</h1>
+                     <h1 >MEDICAL EBV</h1>
                      <p>Patient support program</p>
                       </div>
                     </Col>
