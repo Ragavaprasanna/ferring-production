@@ -29,16 +29,29 @@ const Header = () => {
       <div>
             <div className="Hcontainer">
                 <Row>
-                    <Col span={4} className='leftPatternCol' >
+                    <Col span={7} className='leftPatternCol' >
                     
                 <div className="leftContainer">
                 
-                     <h1 >MEDICAL EBV</h1>
-                     <p>Patient support program</p>
+                     {/* <h1 >MEDICAL EBV</h1>
+                     <p>Patient support program</p> */}
+                     <div>
+                      <img  className = 'headerlogo'  src = 'https://master-3.corporate.ferring.tech/wp-content/uploads/sites/16/2021/01/Ferring-logo.png'/>
                       </div>
+
+                      </div>
+
+
                     </Col>
+                    <Col span={8}>
+                    
+                    <div>
+                          <h2 className='medi' >MEDICAL eBV FOR EUFLEXXA</h2>
+                     <p className='medip'>Patient support program</p> 
+                      </div></Col>
+                    
                   
-                    <Col offset={14} span={6} className='rightPatterCol'>
+                    <Col offset={4} span={5} className='rightPatterCol'>
                     
                     <div className='RightPattern'>
                         <Row className='rightPatternRow'>

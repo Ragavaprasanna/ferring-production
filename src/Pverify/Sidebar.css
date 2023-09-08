@@ -181,7 +181,15 @@
   margin-left: 79px;
 }
 .savenxt{
-  float: right;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.savenxtdiv{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 .css-dmmspl-MuiFormGroup-root {
   display: -webkit-box;
@@ -209,7 +217,10 @@
     font-size: 16px;
     font-weight: 500;
 }
-.pverifyCard.ant-card{
+.pverifyCard{
+  margin-top: 5%;
+}
+.ant-card{
   border: 1px solid #c5c5c5;
 }
 .descriptionPara{

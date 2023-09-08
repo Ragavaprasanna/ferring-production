@@ -76,6 +76,12 @@ const PureReact = () => {
   const [anthembluecrossblueshield, setanthembluecrossblueshield] = useState(
     []
   );
+  const [upmc, setupmc] = useState([]);
+  const [geisinger, setgeisinger] = useState([]);
+  const [amerihealth, setamerihealth] = useState([]);
+  const [imperialhealth, setimperialhealth] = useState([]);
+  const [hyperlinks, setlink] = useState([]);
+  const [byalors, setbyalors] = useState([]);
   const [aetna, setaetna] = useState([]);
   const [ambetter, setambetter] = useState([]);
   const [unitedhealthcare, setunitedhealthcare] = useState([]);
@@ -190,6 +196,21 @@ message.open({
       setunitedhealthcare(
         res.data.united_healthcare_list
       );
+      setupmc(
+        res.data.upmc_list
+      );
+      setgeisinger(
+        res.data.geisinger_list
+      );
+      setamerihealth(
+        res.data.amerihealth_list
+      );
+      setimperialhealth(
+        res.data.imperial_list
+      );
+      setbyalors(
+        res.data.byalors_list
+      );
       // setunitedhealthcare(res.data.unitedhealthcare.filter((e) => e != null));
       // console.log(cigna, "cigna");
     });
@@ -213,6 +234,21 @@ message.open({
     }
     if (payer === "Ambetter") {
       setPlan(ambetter);
+    }
+    if (payer === "UPMChealth") {
+      setPlan(upmc);
+    }
+    if (payer === "GeisingerHealth") {
+      setPlan(geisinger);
+    }
+    if (payer === "Amerihealth") {
+      setPlan(amerihealth);
+    }
+    if (payer === "ImperialHealth") {
+      setPlan(imperialhealth);
+    }
+    if (payer === "BaylorScottandWhite") {
+      setPlan(byalors);
     }
   }, [payer]);
 
@@ -241,7 +277,8 @@ message.open({
         console.log(response, "covert");
         setresponseCovered(res.data.Result.response.Response);
         let description = res.data.Result.response.Description;
-        console.log(response, "res");
+         setlink(res.data.Result.response.link[0]);
+        console.log(hyperlinks, "hyperlinks");
 
         setSummary(description);
         console.log("before",payer)
@@ -642,6 +679,11 @@ console.log("error",e)
     { label: "BluecrossBlueshield", id: 4 },
     { label: "Aetna", id: 5 },
     { label: "Ambetter", id: 6 },
+    { label: "UPMChealth", id: 7 },
+    { label: "GeisingerHealth", id: 8 },
+    { label: "Amerihealth", id: 9 },
+    { label: "ImperialHealth", id: 10 },
+    { label: "BaylorScottandWhite", id: 11 },
   ];
   const options2 = [
     { label: "EmblemHealth Platinum", id: 1 },
@@ -707,81 +749,6 @@ console.log("error",e)
             >
               {/* Left Side */}
               <Grid item xs={12} md={4} lg={4}>
-                <FormControl>
-                  <FormLabel id="demo-radio-buttons-group-label" style={{}}>
-                    Drug Info
-                  </FormLabel>
-                  <RadioGroup
-                    aria-labelledby="demo-radio-buttons-group-label"
-                    defaultValue="EUFLEXXA"
-                    name="radio-buttons-group"
-                  >
-                    <FormControlLabel
-                      value="EUFLEXXA"
-                      control={<Radio />}
-                      label="EUFLEXXA"
-                    />
-                  </RadioGroup>
-                </FormControl>
-
-                <FormControl sx={{ mt: 2 }}>
-                  <InputLabel id="demo-simple-select-label"></InputLabel>
-                  <Autocomplete
-                    disablePortal
-                    id="combo-box-demo"
-                    options={options1}
-                    value={payer}
-                    sx={{ width: 400 }}
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        label="Insurance Name"
-                        onSelect={(e) => setPayer(e.target.value)}
-                      />
-                    )}
-                  />
-                </FormControl>
-                <FormControl sx={{ mt: 2 }}>
-                  <InputLabel id="demo-simple-select-label"></InputLabel>
-
-                  <Autocomplete
-                    disablePortal
-                    id="combo-box-demo"
-                    options={plan}
-                    sx={{ width: 400 }}
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        label="Plan Type"
-                        onSelect={(e) => setPlanName(e.target.value)}
-                      />
-                    )}
-                  />
-                </FormControl>
-                <FormControl sx={{ mt: 2 }}>
-                  <InputLabel id="demo-simple-select-label"></InputLabel>
-
-                  <Autocomplete
-                    disablePortal
-                    id="combo-box-demo"
-                    options={states}
-                    sx={{ width: 400 }}
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        label="State"
-                        onSelect={(e) => setstate(e.target.value)}
-                      />
-                    )}
-                  />
-                </FormControl>
-
-                {/* </Stack> */}
-                
-              </Grid>
-
-              {/* Right Side */}
-              <Grid item xs={4} style={{ marginTop: 5 }}>
                 <FormLabel id="demo-radio-buttons-group-label" style={{}}>
                   Insurance Info
                 </FormLabel>
@@ -792,6 +759,7 @@ console.log("error",e)
                   name="radio-buttons-group"
                   onChange={onChange}
                 >
+                  <div style={{display:"flex"}}>
                   <FormControlLabel
                     value="Auto"
                     control={<Radio />}
@@ -802,6 +770,7 @@ console.log("error",e)
                     control={<Radio />}
                     label="Manual"
                   />
+                  </div>
                 </RadioGroup>
                 {dragger === "Auto" ? (
                   <>
@@ -880,8 +849,107 @@ console.log("error",e)
                     </Box>
                   </>
                 )}
+
                 {/* </Stack> */}
-                <LoadingButton
+                
+              </Grid>
+
+              {/* Right Side */}
+              <Grid item xs={4} style={{ marginTop: 5 }}>
+                {/* <FormControl>
+                  <FormLabel id="demo-radio-buttons-group-label" style={{}}>
+                    Drug Info
+                  </FormLabel>
+                  <RadioGroup
+                    aria-labelledby="demo-radio-buttons-group-label"
+                    defaultValue="EUFLEXXA"
+                    name="radio-buttons-group"
+                  >
+                    <FormControlLabel
+                      value="EUFLEXXA"
+                      control={<Radio />}
+                      label="EUFLEXXA"
+                    />
+                  </RadioGroup>
+                </FormControl> */}
+                <FormControl sx={{ mt: 8 }}>
+                  <InputLabel id="demo-simple-select-label"></InputLabel>
+
+                  <Autocomplete
+                    disablePortal
+                    id="combo-box-demo"
+                    options={states}
+                    sx={{ width: 400 }}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        label="State"
+                        onSelect={(e) => setstate(e.target.value)}
+                      />
+                    )}
+                  />
+                </FormControl>
+
+                <FormControl sx={{ mt: 2 }}>
+                  <InputLabel id="demo-simple-select-label"></InputLabel>
+                  <Autocomplete
+                    disablePortal
+                    id="combo-box-demo"
+                    options={options1}
+                    value={payer}
+                    sx={{ width: 400 }}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        label="Insurance Name"
+                        onSelect={(e) => setPayer(e.target.value)}
+                      />
+                    )}
+                  />
+                </FormControl>
+                <FormControl sx={{ mt: 2 }}>
+                  <InputLabel id="demo-simple-select-label"></InputLabel>
+
+                  <Autocomplete
+                    disablePortal
+                    id="combo-box-demo"
+                    options={plan}
+                    sx={{ width: 400 }}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        label="Plan Type"
+                        onSelect={(e) => setPlanName(e.target.value)}
+                      />
+                    )}
+                  />
+                </FormControl>
+                {/* <FormControl sx={{ mt: 2 }}>
+                  <InputLabel id="demo-simple-select-label"></InputLabel>
+
+                  <Autocomplete
+                    disablePortal
+                    id="combo-box-demo"
+                    options={states}
+                    sx={{ width: 400 }}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        label="State"
+                        onSelect={(e) => setstate(e.target.value)}
+                      />
+                    )}
+                  />
+                </FormControl> */}
+                {/* </Stack> */}
+               
+                <div>
+                  
+                </div>
+              </Grid>
+            </Grid>
+            <div className="savenxtdiv">
+            <LoadingButton
                   // disabled={response === !"" ? true : false}
                   className="savenxt"
                   loadingPosition="start"
@@ -889,18 +957,14 @@ console.log("error",e)
                   onClick={() => handleClick("Submit")}
                   loading={searchLoading}
                   style={{
-                    marginTop: "10%",
+                    marginTop: "5%",
                     marginLeft: "-5px",
                     // marginBottom: "50px",
                   }}
                 >
                   Submit eBV Request
                 </LoadingButton>
-                <div>
-                  
-                </div>
-              </Grid>
-            </Grid>
+            </div>
             <Row>
                 <Col offset={4} span={8}>
             {summary != "" ? (
@@ -976,7 +1040,15 @@ console.log("error",e)
                   <div></div>
                 </div>
                     <Card className="pverifyCard">
-                        <p>{summary}</p>
+                    <div>
+        <div>
+          {summary} {/* Display the summary text */}
+        </div>
+        <a href={hyperlinks} target="_blank" rel="">
+          {hyperlinks}
+        </a>
+      </div>
+                        
                     </Card>
                     </div>
                     </>
@@ -992,7 +1064,7 @@ console.log("error",e)
                     ) : (
 
                       <Col span={24}>
-                        <div style={{ marginTop:"54px", marginLeft: "25px" }} className="leftdiv">
+                        <div style={{ marginTop:"27%", marginLeft: "25px" }} className="leftdiv">
                           {/* <Row className="induranceInfo">
                             <h3> Insurance Info </h3>
                           </Row> */}

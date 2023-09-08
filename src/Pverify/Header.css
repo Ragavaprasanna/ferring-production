@@ -7,6 +7,9 @@
 }
  .leftContainer{
     margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    /* width:800px */
     /* margin-top: 20px; */
 
 }
@@ -63,4 +66,30 @@
 .logoutmini{
 
    margin-top: 10px;
+}
+/* .image{
+    font-size: small;
+} */
+.headerlogo{
+    width:100px;
+    height:70px
+}
+
+.medi{
+    font-family: Inter;
+font-size: 20px;
+font-weight: 700;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: center
+
+}
+.medip{
+font-family: Inter;
+font-size: 15px;
+font-weight: 500;
+line-height: 18px;
+letter-spacing: 0.1em;
+text-align: center;
+margin-top: -10px;
 }
