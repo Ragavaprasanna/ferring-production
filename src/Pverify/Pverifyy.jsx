@@ -70,7 +70,7 @@ const PureReact = () => {
   const [ImageUrl, setImageUrl] = useState("");
   const [planname, setPlanName] = useState("");
   const [drugname, setDrugName] = useState("");
-  const [payer, setPayer] = useState("");
+  const [payer, setPayer] = useState([]);
   const [cigna, setCigna] = useState([]);
   const [emblemhealth, setemblemhealth] = useState([]);
   const [anthembluecrossblueshield, setanthembluecrossblueshield] = useState(
@@ -86,9 +86,10 @@ const PureReact = () => {
   const [ambetter, setambetter] = useState([]);
   const [unitedhealthcare, setunitedhealthcare] = useState([]);
   const [plan, setPlan] = useState([]);
+  const [payerlist, setPayerlist] = useState([]);
   const [responseCovered, setresponseCovered] = useState("");
   const [color, setcolor] = useState("");
-  const [state, setstate] = useState("");
+  const [state, setstate] = useState([]);
   const [icon1, seticon1] = useState(false);
   const [icon2, seticon2] = useState(false);
   const [icon3, seticon3] = useState(false);
@@ -99,7 +100,12 @@ const PureReact = () => {
   const [lastname, setlastname] = useState("");
   const [dob, setdob] = useState("");
   const [dragger, setdragger] = useState("Auto");
-  const [payercode, setpayercode] = useState("");
+  const [newyork, setnewyork] = useState([]);
+  const [newjersey, setjersey] = useState([]);
+  const [pennsylvania, setpennsylvania] = useState([]);
+  const [michigan, setmichigan] = useState([]);
+  const [texas, settexas] = useState([]);
+  const [illinois, setillinois] = useState([]);
   // const [payers, setpayers] = useState("");
   // const [provider, setprovider] = useState("");
 
@@ -251,6 +257,54 @@ message.open({
       setPlan(byalors);
     }
   }, [payer]);
+
+  useEffect(() => {
+    let url8 =
+      "https://xq6ayj6uipoz5gppwuahrfle7y0lkepy.lambda-url.us-east-1.on.aws/";
+
+    axios.get(url8).then((res) => {
+      console.log(res, "statelist");
+      setnewyork(res.data.new_york);
+      setjersey(res.data.new_jersey);
+      setpennsylvania(res.data.pennsylvania);
+      setmichigan(
+        res.data.michigan
+      );
+      settexas(
+        res.data.texas
+      );
+      setillinois(
+        res.data.illinois
+      );
+      
+      // setunitedhealthcare(res.data.unitedhealthcare.filter((e) => e != null));
+      // console.log(cigna, "cigna");
+    });
+  }, []);
+
+  useEffect(() => {
+    if (state === "New York") {
+      setPayerlist(newyork);
+      console.log(newyork, "ragav");
+    }
+    if (state === "New Jersey") {
+      setPayerlist(newjersey);
+    }
+    if (state === "Pennsylvania") {
+      setPayerlist(pennsylvania);
+    }
+    if (state === "Michigan") {
+      setPayerlist(michigan);
+    }
+    if (state === "Texas") {
+      setPayerlist(texas);
+    }
+    if (state === "Illinois") {
+      setPayerlist(illinois);
+    }
+    
+  }, [state]);
+  console.log(payer,"99999")
 
   const handleClick = (e) => {
     setSearchLoading(true);
@@ -895,8 +949,9 @@ console.log("error",e)
                   <Autocomplete
                     disablePortal
                     id="combo-box-demo"
-                    options={options1}
-                    value={payer}
+                    options={payerlist}
+                
+                    // value={payer}
                     sx={{ width: 400 }}
                     renderInput={(params) => (
                       <TextField
@@ -1044,9 +1099,11 @@ console.log("error",e)
         <div>
           {summary} {/* Display the summary text */}
         </div>
+        <div style={{width:"90%",overflow:"hidden"}}>
         <a href={hyperlinks} target="_blank" rel="">
           {hyperlinks}
         </a>
+        </div>
       </div>
                         
                     </Card>
