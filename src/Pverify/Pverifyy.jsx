@@ -294,7 +294,7 @@ message.open({
     if (payer === "HealthFirst") {
       setPlan(health);
     }
-    if (payer === "Oscar") {
+    if (payer === "OscarHealth") {
       setPlan(oscar);
     }
     if (payer === "HAP") {
@@ -786,7 +786,7 @@ console.log("error",e)
     { label: "CloverHealth", id: 12 },
     { label: "Wellcare", id: 13 },
     { label: "HealthFirst", id: 14 },
-    { label: "Oscar", id: 15 },
+    { label: "OscarHealth", id: 15 },
     { label: "HAP", id: 16 },
   ];
   const options2 = [
