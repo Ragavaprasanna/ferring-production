@@ -109,6 +109,8 @@ const PureReact = () => {
   const [clover, setclover] = useState([]);
   const [wellcare, setwellcare] = useState([]);
   const [health, sethealth] = useState([]);
+  const [oscar, setoscar] = useState([]);
+  const [hap, sethap] = useState([]);
   // const [payers, setpayers] = useState("");
   // const [provider, setprovider] = useState("");
 
@@ -234,6 +236,15 @@ message.open({
         res.data.health_first
 
       );
+      setoscar(
+        res.data.oscar_health
+
+
+      );
+      sethap(
+        res.data.hap
+
+      );
       // setunitedhealthcare(res.data.unitedhealthcare.filter((e) => e != null));
       // console.log(cigna, "cigna");
     });
@@ -282,6 +293,12 @@ message.open({
     }
     if (payer === "HealthFirst") {
       setPlan(health);
+    }
+    if (payer === "Oscar") {
+      setPlan(oscar);
+    }
+    if (payer === "HAP") {
+      setPlan(hap);
     }
   }, [payer]);
 
@@ -769,6 +786,8 @@ console.log("error",e)
     { label: "CloverHealth", id: 12 },
     { label: "Wellcare", id: 13 },
     { label: "HealthFirst", id: 14 },
+    { label: "Oscar", id: 15 },
+    { label: "HAP", id: 16 },
   ];
   const options2 = [
     { label: "EmblemHealth Platinum", id: 1 },
