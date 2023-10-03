@@ -106,8 +106,13 @@ const PureReact = () => {
   const [michigan, setmichigan] = useState([]);
   const [texas, settexas] = useState([]);
   const [illinois, setillinois] = useState([]);
+  const [clover, setclover] = useState([]);
+  const [wellcare, setwellcare] = useState([]);
+  const [health, sethealth] = useState([]);
   // const [payers, setpayers] = useState("");
   // const [provider, setprovider] = useState("");
+
+  console.log(health,"health")
 
   const UnitedHealthCare=[
  
@@ -190,32 +195,44 @@ message.open({
 
     axios.get(url5).then((res) => {
       console.log(res, "payerlist");
-      setCigna(res.data.cigna_list);
-      setaetna(res.data.aetna_list);
-      setemblemhealth(res.data.emblem_list);
+      // const cigna_list = res.data.cigna_list.filter((e) => e !== '\\N');
+      setCigna(res.data.cigna_list.filter((e) => e != '\\N'));
+      setaetna(res.data.aetna_list.filter((e) => e != '\\N'));
+      setemblemhealth(res.data.emblem_list.filter((e) => e != '\\N'));
       setanthembluecrossblueshield(
-        res.data.blue_cross
+        res.data.blue_cross.filter((e) => e != '\\N')
       );
       setambetter(
-        res.data.ambetter_list
+        res.data.ambetter_list.filter((e) => e != '\\N')
       );
       setunitedhealthcare(
-        res.data.united_healthcare_list
+        res.data.united_healthcare_list.filter((e) => e != '\\N')
       );
       setupmc(
-        res.data.upmc_list
+        res.data.upmc_list.filter((e) => e != '\\N')
       );
       setgeisinger(
-        res.data.geisinger_list
+        res.data.geisinger_list.filter((e) => e != '\\N')
       );
       setamerihealth(
-        res.data.amerihealth_list
+        res.data.amerihealth_list.filter((e) => e != '\\N')
       );
       setimperialhealth(
-        res.data.imperial_list
+        res.data.imperial_list.filter((e) => e != '\\N')
       );
       setbyalors(
-        res.data.byalors_list
+        res.data.byalors_list.filter((e) => e != '\\N')
+      );
+
+      setclover(
+        res.data.clover_health
+      );
+      setwellcare(
+        res.data.wellcare
+      );
+      sethealth(
+        res.data.health_first
+
       );
       // setunitedhealthcare(res.data.unitedhealthcare.filter((e) => e != null));
       // console.log(cigna, "cigna");
@@ -255,6 +272,16 @@ message.open({
     }
     if (payer === "BaylorScottandWhite") {
       setPlan(byalors);
+    }
+
+    if (payer === "CloverHealth") {
+      setPlan(clover);
+    }
+    if (payer === "Wellcare") {
+      setPlan(wellcare);
+    }
+    if (payer === "HealthFirst") {
+      setPlan(health);
     }
   }, [payer]);
 
@@ -673,6 +700,7 @@ console.log("error",e)
 // console.log("Member:", member);
 // console.log("Member ID:", memberID);
                    const insur = res.data.insurer_name
+                   console.log(insur,"insur")
                    if(res.data.insurer_name=="United Healthcare"){
                    setPayer("UnitedHealthCare")
                    }
@@ -738,6 +766,9 @@ console.log("error",e)
     { label: "Amerihealth", id: 9 },
     { label: "ImperialHealth", id: 10 },
     { label: "BaylorScottandWhite", id: 11 },
+    { label: "CloverHealth", id: 12 },
+    { label: "Wellcare", id: 13 },
+    { label: "HealthFirst", id: 14 },
   ];
   const options2 = [
     { label: "EmblemHealth Platinum", id: 1 },
@@ -951,7 +982,7 @@ console.log("error",e)
                     id="combo-box-demo"
                     options={payerlist}
                 
-                    // value={payer}
+                    value={payer}
                     sx={{ width: 400 }}
                     renderInput={(params) => (
                       <TextField
