@@ -951,7 +951,7 @@ console.log("error",e)
                     id="combo-box-demo"
                     options={payerlist}
                 
-                    // value={payer}
+                     value={payer} 
                     sx={{ width: 400 }}
                     renderInput={(params) => (
                       <TextField
