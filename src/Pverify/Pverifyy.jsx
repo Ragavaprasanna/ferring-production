@@ -156,7 +156,7 @@ message.open({
     console.log('errormessagefunction')
 message.open({
       type: "error",
-      content: "Invalid Subscriber Id",
+      content: "Your Subscriber Id Not Match For Selected Insurance Name",
     });
   }
 
