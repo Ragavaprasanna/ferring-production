@@ -463,6 +463,7 @@ console.log("error",e)
             })
           
             .finally(() => {
+              
               setSearchLoading(false);
             });
           }
@@ -1113,7 +1114,7 @@ console.log(ebv,"ebv")
                     renderInput={(params) => (
                       <TextField
                         {...params}
-                        label="Plan Type"
+                        label="Plan Name"
                         onSelect={(e) => setPlanName(e.target.value)}
                       />
                     )}
