@@ -822,6 +822,15 @@ console.log("error",e)
     { label: "Illinois", id: 6 },
   ];
 
+  const Method = [
+    { label: "Pverify", id: 1 },
+    { label: "change healthcare", id: 2 },
+    { label: "Office Ally", id: 3 },
+    { label: "Realmed", id: 4 },
+    { label: "UHIN", id: 5 },
+    { label: "TriZetto", id: 6 },
+  ];
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -1029,23 +1038,23 @@ console.log("error",e)
                     )}
                   />
                 </FormControl>
-                {/* <FormControl sx={{ mt: 2 }}>
+                <FormControl sx={{ mt: 2 }}>
                   <InputLabel id="demo-simple-select-label"></InputLabel>
 
                   <Autocomplete
                     disablePortal
                     id="combo-box-demo"
-                    options={states}
+                    options={Method}
                     sx={{ width: 400 }}
                     renderInput={(params) => (
                       <TextField
                         {...params}
-                        label="State"
+                        label="eBV Methods"
                         onSelect={(e) => setstate(e.target.value)}
                       />
                     )}
                   />
-                </FormControl> */}
+                </FormControl>
                 {/* </Stack> */}
                
                 <div>
