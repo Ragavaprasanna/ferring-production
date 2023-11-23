@@ -111,6 +111,7 @@ const PureReact = () => {
   const [health, sethealth] = useState([]);
   const [oscar, setoscar] = useState([]);
   const [hap, sethap] = useState([]);
+  const [ebv, setebv] = useState("");
   // const [payers, setpayers] = useState("");
   // const [provider, setprovider] = useState("");
 
@@ -131,7 +132,7 @@ const PureReact = () => {
 
   ]
 
-  
+  console.log(ebv, "ebv")
 
   console.log(dob, "Dob");
 
@@ -415,8 +416,8 @@ message.open({
             dob: dob,
             lastName: lastname,
             subscriberID: subscriberid,
-            payerCode:enblem,
-            payerName1:payer,
+            payerCode:"00192",
+            payerName1:"UnitedHealthCare"
             // provider_lastname:provider
           };
     
@@ -826,10 +827,88 @@ console.log("error",e)
     { label: "Pverify", id: 1 },
     { label: "change healthcare", id: 2 },
     { label: "Office Ally", id: 3 },
-    { label: "Realmed", id: 4 },
-    { label: "UHIN", id: 5 },
-    { label: "TriZetto", id: 6 },
+    { label: "Availity", id: 4 },
+    { label: "Zirmed", id: 5 },
+   
   ];
+
+  useEffect(()=>{
+
+    // const pverify = "pVerify"
+    // const changehealthcare = "Change Healthcare"
+
+  if(payer === "Ambetter"){
+    setebv("pverify")
+    console.log('chaN')
+    
+  }
+  if(payer === "EmblemHealth"){
+    setebv("pverify")
+    console.log('chaN')
+    
+  }
+  if(payer === "GeisingerHealth"){
+    setebv("pverify")
+    console.log('chaN')
+    
+  }
+  if(payer === "BaylorScottandWhite"){
+    setebv("pverify")
+    console.log('chaN')
+    
+  }
+  if(payer === "UPMChealth"){
+    setebv("pverify")
+    console.log('chaN')
+    
+  }
+  if(payer === "CloverHealth"){
+    setebv("pverify")
+    console.log('chaN')
+    
+  }
+  if(payer === "Cigna"){
+    setebv("Change Healthcare")
+
+  }
+  if(payer === "UnitedHealthCare"){
+    setebv("Change Healthcare")
+
+  }
+  if(payer === "Amerihealth"){
+    setebv("Change Healthcare")
+
+  }
+  if(payer === "Aetna"){
+    setebv("Availity")
+
+  }
+  if(payer === "ImperialHealth"){
+    setebv("Availity")
+
+  }
+  if(payer === "Wellcare"){
+    setebv("Office Ally")
+
+  }
+  if(payer === "HAP"){
+    setebv("Office Ally")
+
+  }
+  if(payer === "BluecrossBlueshield"){
+    setebv("Zirmed")
+
+  }
+  if(payer === "HealthFirst"){
+    setebv("Zirmed")
+
+  }
+  if(payer === "OscarHealth"){
+    setebv("Zirmed")
+
+  }
+},[payer])
+console.log(ebv,"ebv")
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
@@ -1038,23 +1117,19 @@ console.log("error",e)
                     )}
                   />
                 </FormControl>
-                <FormControl sx={{ mt: 2 }}>
-                  <InputLabel id="demo-simple-select-label"></InputLabel>
-
-                  <Autocomplete
-                    disablePortal
-                    id="combo-box-demo"
-                    options={Method}
-                    sx={{ width: 400 }}
-                    renderInput={(params) => (
+                <Box
+                      sx={{ mt: 2, minWidth: 400 }}
+                      style={{ display: "flex", flexDirection: "row", width:"200px"}}
+                    >
                       <TextField
-                        {...params}
-                        label="eBV Methods"
-                        onSelect={(e) => setstate(e.target.value)}
+                      disabled={true}
+                        // onChange={(e) => setfirstname(e.target.value)}
+                        sx={{ width: "100%" }}
+                       value={ebv}
+                        label="eBV Gateway"
+                        variant="outlined"
                       />
-                    )}
-                  />
-                </FormControl>
+                      </Box>
                 {/* </Stack> */}
                
                 <div>
