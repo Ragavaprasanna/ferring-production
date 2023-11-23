@@ -1125,7 +1125,7 @@ console.log(ebv,"ebv")
                       style={{ display: "flex", flexDirection: "row", width:"200px"}}
                     >
                       <TextField
-                      // disabled={true}
+                      disabled={true}
                         // onChange={(e) => setfirstname(e.target.value)}
                         sx={{ width: "100%",fontWeight: "bolder",fontSize:"24px" }}
                        value={ebv}
