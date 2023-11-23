@@ -36,7 +36,7 @@ const Header = () => {
                      {/* <h1 >MEDICAL EBV</h1>
                      <p>Patient support program</p> */}
                      <div>
-                      <img  className = 'headerlogo'  src = 'https://master-3.corporate.ferring.tech/wp-content/uploads/sites/16/2021/01/Ferring-logo.png'/>
+                     
                       </div>
 
                       </div>

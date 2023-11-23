@@ -418,6 +418,7 @@ message.open({
             subscriberID: subscriberid,
             payerCode:"00192",
             payerName1:"UnitedHealthCare"
+            
             // provider_lastname:provider
           };
     
@@ -722,6 +723,7 @@ console.log("error",e)
                    if(res.data.insurer_name=="United Healthcare"){
                    setPayer("UnitedHealthCare")
                    }
+                  
                 const fullName = res.data.Member;
                 if (fullName) {
                   const nameParts = fullName.split(" ");
@@ -838,32 +840,32 @@ console.log("error",e)
     // const changehealthcare = "Change Healthcare"
 
   if(payer === "Ambetter"){
-    setebv("pverify")
+    setebv("pVerify")
     console.log('chaN')
     
   }
   if(payer === "EmblemHealth"){
-    setebv("pverify")
+    setebv("pVerify")
     console.log('chaN')
     
   }
   if(payer === "GeisingerHealth"){
-    setebv("pverify")
+    setebv("pVerify")
     console.log('chaN')
     
   }
   if(payer === "BaylorScottandWhite"){
-    setebv("pverify")
+    setebv("pVerify")
     console.log('chaN')
     
   }
   if(payer === "UPMChealth"){
-    setebv("pverify")
+    setebv("pVerify")
     console.log('chaN')
     
   }
   if(payer === "CloverHealth"){
-    setebv("pverify")
+    setebv("pVerify")
     console.log('chaN')
     
   }
@@ -1122,10 +1124,11 @@ console.log(ebv,"ebv")
                       style={{ display: "flex", flexDirection: "row", width:"200px"}}
                     >
                       <TextField
-                      disabled={true}
+                      // disabled={true}
                         // onChange={(e) => setfirstname(e.target.value)}
-                        sx={{ width: "100%" }}
+                        sx={{ width: "100%",fontWeight: "bolder",fontSize:"24px" }}
                        value={ebv}
+                       inputProps={{style: {fontSize: 15,fontWeight:'600' }}}
                         label="eBV Gateway"
                         variant="outlined"
                       />
