@@ -47,7 +47,7 @@ const Header = () => {
                     
                     <div>
                           <h2 className='medi' >MEDICAL eBV FOR EUFLEXXA</h2>
-                     <p className='medip'>Patient support program</p> 
+                     <p className='medip'>Patient Support Program</p> 
                       </div></Col>
                     
                   
