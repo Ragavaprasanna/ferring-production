@@ -112,6 +112,7 @@ const PureReact = () => {
   const [oscar, setoscar] = useState([]);
   const [hap, sethap] = useState([]);
   const [ebv, setebv] = useState("");
+  const [ebvresponse, setebvresponse] = useState("");
   // const [payers, setpayers] = useState("");
   // const [provider, setprovider] = useState("");
 
@@ -149,7 +150,7 @@ const PureReact = () => {
     console.log('successmessagefunction')
 message.open({
       type: "success",
-      content: "Pverify Verified Successfully",
+      content: "eBV Gateway Verified Successfully",
     });
 //     messageApi.success("Logged in successfully")
   };
@@ -357,106 +358,108 @@ message.open({
     console.log(e, "searchVal");
     if (e == "Submit") {
 
-      let url2 =
-        "https://oxk2aiz3qvwftkvbxla67vlsre0iljbr.lambda-url.us-east-1.on.aws/";
-        let planName = planname;
-      let DrugName = drugname;
-      let payer1  = payer
-      let body = {
-        // "Id": my_list[0],
-        PlanName: planName,
-        PayerName: payer1,
-        DrugName: "EUFLEXXA",
-        State :state
-      };
+      let enblem ;
+      // console.log(response,"response",payer)
 
-      axios.post(url2, JSON.stringify(body)).then((res) => {
-        console.log(res);
-        let response = res.data.Result.response.Response;
-        console.log(response, "covert");
-        setresponseCovered(res.data.Result.response.Response);
-        let description = res.data.Result.response.Description;
-         setlink(res.data.Result.response.link[0]);
-        console.log(hyperlinks, "hyperlinks");
+      if(payer =="EmblemHealth"){
+        setpayerCode(enblem)
+        enblem="000101" 
 
-        setSummary(description);
-        console.log("before",payer)
-
-       
-        if(response=="Covered"||"Covered with Condition."||"Not Covered"||"Detail Not available"){
-           let enblem ;
-          console.log(response,"response",payer)
-
-          if(payer =="EmblemHealth"){
-            setpayerCode(enblem)
-            enblem="000101" 
-
-          }
-          if(payer =="UnitedHealthCare"){
-            setpayerCode(enblem)
-            enblem="00192"
+      }
+      if(payer =="UnitedHealthCare"){
+        setpayerCode(enblem)
+        enblem="00192"
 
 
-          }
-          console.log(enblem,"called",payer)
-          
-          
-          
-          
- 
+      }
+      console.log(enblem,"called",payer)
+      
+      
+      
       
 
-          let url4 =
-            "https://tedwotzebqf5cp5vus63hkdkum0gegmb.lambda-url.us-east-1.on.aws/";
+  
 
-          let body4 = {
-            // "Id": my_list[0],
-    
-            firstName: firstname,
-            dob: dob,
-            lastName: lastname,
-            subscriberID: subscriberid,
-            payerCode:"00192",
-            payerName1:"UnitedHealthCare"
+      let url4 =
+        "https://tedwotzebqf5cp5vus63hkdkum0gegmb.lambda-url.us-east-1.on.aws/";
+
+      let body4 = {
+        // "Id": my_list[0],
+
+        firstName: firstname,
+        dob: dob,
+        lastName: lastname,
+        subscriberID: subscriberid,
+        payerCode:enblem,
+        payerName1:payer
+        
+        // provider_lastname:provider
+      };
+
+      
+      
+
+      axios
+        .post(url4, JSON.stringify(body4))
+        .then((res) => {
+          console.log(res, "ragav");
+          let copay = res.data.CopayStatus;
+                    console.log(copay, "covert");
+                    setcopayStatus(res.data.CopayStatus);
+                    let IndividualOOP_InNet = res.data.IndividualOOP_InNet;
+                    console.log(IndividualOOP_InNet, "res");
+          
+                    setbalance( res.data.IndividualOOP_InNet);
+                    let IndividualOOPRemainingInNet = res.data.IndividualOOPRemainingInNet
+                    console.log(IndividualOOPRemainingInNet,"IndividualOOPRemainingInNet")
+                    setRemainDeduct( res.data.IndividualOOPRemainingInNet);
+          let Coinsurancerelatedinformation = res.data.Coinsurancerelatedinformation
+          setPercentDeduct(res.data.Coinsurancerelatedinformation)
+          console.log(Coinsurancerelatedinformation,"Coinsurancerelatedinformation")
+          setebvresponse(res.data.status)
+
+          if (res.data.status === "ok" ) {
+            success();
+            if(payer==="UnitedHealthCare"){
+            setPlanName("UnitedHealthcare Medicare Advantage Choice Plan 1 (Regional PPO)")
+            }
+            else{
+              setPlanName("EmblemHealth VIP Gold Plus (HMO)")
+            }
+            // if(copay=="")
             
-            // provider_lastname:provider
-          };
-    
-          
-          
-    
-          axios
-            .post(url4, JSON.stringify(body4))
-            .then((res) => {
-              console.log(res, "ragav");
-              let copay = res.data.CopayStatus;
-                        console.log(copay, "covert");
-                        setcopayStatus(res.data.CopayStatus);
-                        let IndividualOOP_InNet = res.data.IndividualOOP_InNet;
-                        console.log(IndividualOOP_InNet, "res");
-              
-                        setbalance( res.data.IndividualOOP_InNet);
-                        let IndividualOOPRemainingInNet = res.data.IndividualOOPRemainingInNet
-                        console.log(IndividualOOPRemainingInNet,"IndividualOOPRemainingInNet")
-                        setRemainDeduct( res.data.IndividualOOPRemainingInNet);
-              let Coinsurancerelatedinformation = res.data.Coinsurancerelatedinformation
-              setPercentDeduct(res.data.Coinsurancerelatedinformation)
-              console.log(Coinsurancerelatedinformation,"Coinsurancerelatedinformation")
+            // alert("Login Successfull")
+           
 
-              if (res.data.status === "ok" ) {
-                success();
-                // alert("Login Successfull")
-               
-
-            console.log(response)
-            }
-            else {
-                Navigate("/pverifyy");
-                error()
-
-                // message.error("Invalid username or OTP");
-            }
-
+        // console.log(response)
+        
+        
+       
+        if(res.data.status === "ok"){
+          let url2 =
+          "https://oxk2aiz3qvwftkvbxla67vlsre0iljbr.lambda-url.us-east-1.on.aws/";
+          let planName = planname;
+        let DrugName = drugname;
+        let payer1  = payer
+        let body = {
+          // "Id": my_list[0],
+          PlanName: planName,
+          PayerName: payer1,
+          DrugName: "EUFLEXXA",
+          State :state
+        };
+  
+        axios.post(url2, JSON.stringify(body)).then((res) => {
+          console.log(res);
+          let response = res.data.Result.response.Response;
+          console.log(response, "covert");
+          setresponseCovered(res.data.Result.response.Response);
+          let description = res.data.Result.response.Description;
+           setlink(res.data.Result.response.link[0]);
+          console.log(hyperlinks, "hyperlinks");
+  
+          setSummary(description);
+          console.log("before",payer)
         }).catch((e)=>{
             // error()
 console.log("error",e)
@@ -467,7 +470,9 @@ console.log("error",e)
               setSearchLoading(false);
             });
           }
+        }
       });
+    
       
       
     }
@@ -1103,23 +1108,20 @@ console.log(ebv,"ebv")
                     )}
                   />
                 </FormControl>
-                <FormControl sx={{ mt: 2 }}>
-                  <InputLabel id="demo-simple-select-label"></InputLabel>
-
-                  <Autocomplete
-                    disablePortal
-                    id="combo-box-demo"
-                    options={plan}
-                    sx={{ width: 400 }}
-                    renderInput={(params) => (
+                <Box
+                      sx={{ mt: 2, minWidth: 400 }}
+                      style={{ display: "flex", flexDirection: "row", width:"200px"}}
+                    >
                       <TextField
-                        {...params}
+                      disabled={true}
+                        // onChange={(e) => setfirstname(e.target.value)}
+                        sx={{ width: "100%",fontWeight: "bolder",fontSize:"24px" }}
+                       value={planname}
+                       inputProps={{style: {fontSize: 15,fontWeight:'600' }}}
                         label="Plan Name"
-                        onSelect={(e) => setPlanName(e.target.value)}
+                        variant="outlined"
                       />
-                    )}
-                  />
-                </FormControl>
+                      </Box>
                 <Box
                       sx={{ mt: 2, minWidth: 400 }}
                       style={{ display: "flex", flexDirection: "row", width:"200px"}}
@@ -1254,7 +1256,7 @@ console.log(ebv,"ebv")
                   <Col span={8}>
                   
                   <div>
-                    {responseCovered == "" ? (
+                    {ebvresponse == "" ? (
                       <></>
                     ) : (
 
