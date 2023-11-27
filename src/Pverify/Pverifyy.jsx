@@ -162,6 +162,23 @@ message.open({
     });
   }
 
+  const successs = () => {
+    console.log('successmessagefunction')
+message.open({
+      type: "success",
+      content: "Coverage Details Verified Successfully",
+    });
+//     messageApi.success("Logged in successfully")
+  };
+//   const error = () => {
+//     console.log('errormessagefunction')
+// message.open({
+//       type: "error",
+//       content: "Your Subscriber Id Not Match For Selected Insurance Name",
+//     });
+//   }
+
+
   // const success = () => {
   //   messageApi.open({
   //     type: "success",
@@ -423,7 +440,7 @@ message.open({
             if(payer==="UnitedHealthCare"){
             setPlanName("UnitedHealthcare Medicare Advantage Choice Plan 1 (Regional PPO)")
             }
-            else{
+            else if (payer === "EmblemHealth") {
               setPlanName("EmblemHealth VIP Gold Plus (HMO)")
             }
             // if(copay=="")
@@ -435,10 +452,10 @@ message.open({
         
         
        
-        if(res.data.status === "ok"){
+        
           let url2 =
           "https://oxk2aiz3qvwftkvbxla67vlsre0iljbr.lambda-url.us-east-1.on.aws/";
-          let planName = planname;
+          let planName = payer== 'UnitedHealthCare'? 'UnitedHealthcare Medicare Advantage Choice Plan 1 (Regional PPO)':'EmblemHealth VIP Gold Plus (HMO)';
         let DrugName = drugname;
         let payer1  = payer
         let body = {
@@ -460,6 +477,10 @@ message.open({
   
           setSummary(description);
           console.log("before",payer)
+          if(res.data){
+            successs()
+
+          }
         }).catch((e)=>{
             // error()
 console.log("error",e)
@@ -471,7 +492,7 @@ console.log("error",e)
             });
           }
         }
-      });
+      );
     
       
       
