@@ -438,10 +438,10 @@ message.open({
           if (res.data.status === "ok" ) {
             success();
             if(payer==="UnitedHealthCare"){
-            setPlanName("UnitedHealthcare Medicare Advantage Choice Plan 1 (Regional PPO)")
+            setPlanName("AARP Medicare Advantage Prime (HMO-POS)")
             }
             else if (payer === "EmblemHealth") {
-              setPlanName("EmblemHealth VIP Gold Plus (HMO)")
+              setPlanName("EmblemHealth VIP Gold (HMO)")
             }
             // if(copay=="")
             
@@ -455,7 +455,7 @@ message.open({
         
           let url2 =
           "https://oxk2aiz3qvwftkvbxla67vlsre0iljbr.lambda-url.us-east-1.on.aws/";
-          let planName = payer== 'UnitedHealthCare'? 'UnitedHealthcare Medicare Advantage Choice Plan 1 (Regional PPO)':'EmblemHealth VIP Gold Plus (HMO)';
+          let planName = payer== 'UnitedHealthCare'? 'AARP Medicare Advantage Prime (HMO-POS)':'EmblemHealth VIP Gold (HMO)';
         let DrugName = drugname;
         let payer1  = payer
         let body = {
@@ -500,26 +500,26 @@ console.log("error",e)
   };
 
   useEffect(() => {
-    if (responseCovered == "Covered") {
+    if (responseCovered == "covered") {
       // setcolor("red")
       seticon1(true);
       seticon2(false);
       seticon3(false);
       seticon4(false)
       seticon5(false)
-    } else if (responseCovered == "Covered with Conditions") {
+    } else if (responseCovered == "covered with conditions") {
       seticon1(false);
       seticon2(true);
       seticon3(false);
       seticon4(false)
       seticon5(false)
-    } else if (responseCovered == "Covered with Condition") {
+    } else if (responseCovered == "covered with condition") {
       seticon1(false);
       seticon2(false);
       seticon3(false);
       seticon4(true)
       seticon5(false)
-    } else if (responseCovered == "Not Covered") {
+    } else if (responseCovered == "Not covered") {
       seticon1(false);
       seticon2(false);
       seticon3(true);
@@ -1244,7 +1244,7 @@ console.log(ebv,"ebv")
                         />
                         <span style={{ marginLeft: "8px", color: "black" }}>
                           {" "}
-                          Detail Not available
+                          Not Covered
                         </span>
                       </span>
                     ) : (
